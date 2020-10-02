@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--使用命名空间 将mapper.xml文件与我们编写的接口文件 进行映射
+    项目启动时会扫描所有的文件 命名空间不能重复-->
+<mapper namespace="com.example.demo1.mapper.FilmMapper">
+    <update id="updateFilm1" parameterType="Film">
+        UPDATE film
+        <set>
+            <if test="filmName!=null and filmName!=''">
+                FILM_NAME=#{filmName},
+            </if>
+            <if test="filmState>=0">
+                FILM_STATE=#{filmState},
+            </if>
+            <if test="filmImageMain!=null and filmImageMain!=''">
+                FILM_IMAGE_MAIN=#{filmImageMain},
+            </if>
+        </set>
+        WHERE FILM_ID=#{filmId}
+    </update>
+    <!--修改电影视频内容-->
+    <update id="updateFilm2" parameterType="Film">
+        UPDATE film
+        <set>
+            <if test="filmName!=null and filmName!=''">
+                FILM_NAME=#{filmName},
+            </if>
+            <if test="filmState>=0">
+                FILM_STATE=#{filmState},
+            </if>
+            <if test="filmVideoUrl!=null and filmVideoUrl!=''">
+                FILM_VIDEO_URL=#{filmVideoUrl},
+            </if>
+        </set>
+        WHERE FILM_ID=#{filmId}
+    </update>
+
+    <!--<insert id="addFilm" parameterType="Film">-->
+        <!--INSERT INTO film(FILM_NAME,FILM_RELEASE_TIME,FILM_DIRECTOR,FILM_PERFORMER,FILM_STATE,FILM_LEVEL,FILM_HOT)-->
+        <!--VALUES(#{filmName},#{filmReleaseTime},#{filmDirctor},#{filmPerformer},#{filmState},#{filmLevel},#{filmHot})-->
+    <!--</insert>-->
+</mapper>

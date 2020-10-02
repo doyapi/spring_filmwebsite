@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>新电影录入</title>
+		<meta charset="utf-8">
+		<link href="css/style2.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</head>
+<body>
+	 <!-----start-main---->
+	 <div class="main">
+		<div class="login-form">
+			<h1>新电影录入</h1>
+					<div class="head">
+						<img src="images/user.png" alt=""/>
+					</div>
+				<form action="http://localhost:8090/DEMO/addFilm" method="post">
+					<input name="filmName" type="text" placeholder="请输入电影名"><br>
+					<input name="filmDirctor" type="text" placeholder="请输入导演"><br>
+					<input name="filmPerformer" type="text" placeholder="请输入演员"><br>
+					<input name="filmState" type="text" placeholder="请输入状态"><br>
+					<input name="filmLevel" type="text" placeholder="请输入是否付费"><br>
+					<input name="filmDescription" type="text" placeholder="请输入电影简介"><br>
+					<input name="filmReleaseTime" type="date" value="请输入上映日期"><br>
+					<div class="submit">
+							<input type="submit" value="录入"><br>
+					</div>
+				</form>
+				<!--录入电影封面-->
+
+			</div>
+			<!--//End-login-form-->
+			 <!-----start-copyright---->
+   					<div class="copy-right">
+						<p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p> 
+					</div>
+				<!-----//end-copyright---->
+		</div>
+			 <!-----//end-main---->
+		 		
+<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态的</title>
+    <script src="http://localhost:8090/DEMO/js/jquery-1.8.3.js"></script>
+    <script>
+        $(function(){
+            var nameFlag=false;//用于标记用户名验证结果    密码、重复密码、电话
+            //用户名键入事件
+            $('#userName').keyup(function () {
+                var name=$('#userName').val();//获取输入的值
+
+                var nameMode=/^[\u4E00-\u9FA5A-Za-z0-9_]{3,6}$/;
+                if(name.match(nameMode)){
+                    $.ajax({
+                        type:'post',
+                        url:'http://localhost:8090/DEMO/checkName',
+                        data:'userName='+name,
+                        dataType:'json',
+                        success:function (result) {
+                            console.log(result);
+                            if (result.msg=="ok"){
+                                $('#nameMsg').html("<font color='#7fffd4'>&radic;用户名可用</font>");
+                                nameFlag=true;
+                            }else{
+                                $('#nameMsg').html("<font color='red'>&times;用户名不可用</font>");
+                                nameFlag=false;
+                            }
+                        },error:function () {//后台有可能报错
+                            console.log("通讯失败");
+                        }
+                    })
+                }else{
+                    $('#nameMsg').html("<font color='red'>&times;用户名不合法</font>");
+                    nameFlag=false;
+
+                }
+
+                // $.ajax({
+                //     type:'post',
+                //     url:'http://localhost:8090/DEMO/checkName',
+                //     data:'userName='+name,
+                //     dataType:'json',
+                //     success:function (result) {
+                //         console.log(result);
+                //         if (result.msg=="ok"){
+                //             $('#nameMsg').html("<font color='#7fffd4'>&radic;用户名可用</font>")
+                //         }else{
+                //             $('#nameMsg').html("<font color='red'>&times;用户名不可用</font>")
+                //         }
+                //     },error:function () {//后台有可能报错
+                //         console.log("通讯失败");
+                //     }
+                // })
+            });
+
+            //用户名输入框失去焦点事件
+            $('#userName').blur(function () {
+                if (true==nameFlag){
+                    $('#registBtn').attr('disabled',false);     //按钮可用
+                }else{
+                    $('#registBtn').attr('disabled',true);     //按钮不可用
+                }
+            });
+            //点击提交Button时，控制表单
+            $('#registBtn').click(function () {
+                $('form[id=registForm]').attr('action','http://localhost:8090/DEMO/regist4');
+                $('#registForm').submit();
+            });
+        })
+    </script>
+</head>
+<body>
+<p>注册表单4</p>
+<form id="registForm" action="regist4" method="post">
+    <input id="userName" name="userName" type="text" placeholder="请输入姓名">
+    <span id="nameMsg"></span><br>
+    <input name="pwd" type="password" placeholder="请输入密码"><br>
+    <label><input type="radio" name="sex" value="男">male</label>
+    <label><input type="radio" name="sex" value="女">female</label><br>
+    <input id="phone" name="phone" type="number" placeholder="请输入电话">
+    <span id="phoneMsg"></span><br>
+
+    <input name="balance" type="double" placeholder="请输入充值金额" required><br>
+    <input name="birth" type="date" value="请输入生日"><br>
+
+    <!--<input type="submit" value="注册"><br>-->
+    <input id="registBtn" type="button" value="注册" disabled><br>
+</form>
+</body>
+</html>

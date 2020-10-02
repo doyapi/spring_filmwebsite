@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>动态的</title>
+</head>
+<body>
+    <text>自己动</text>
+<!--原始页面数据获取-->
+    <form action="regist1" method="post">
+        <input name="name" type="text" placeholder="请输入姓名"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+    <hr>
+    <form action="regist2" method="post">
+        <input name="name" type="text" placeholder="请输入姓名"><br>
+        <input name="pwd" type="password" placeholder="请输入密码"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+<!--name属性要和绑定对象的属性名一致-->
+    <form action="regist3" method="post">
+        <input name="userName" type="text" placeholder="请输入姓名"><br>
+        <input name="pwd" type="password" placeholder="请输入密码"><br>
+        <label><input type="radio" name="sex" value="男">male</label>
+        <label><input type="radio" name="sex" value="女">female</label><br>
+        <input name="phone" type="number" placeholder="请输入电话"><br>
+        <input name="balance" type="double" placeholder="请输入充值金额" required><br>
+        <input name="birth" type="date" value="请输入生日"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+    <hr>
+    <p>注册表单4</p>
+    <form action="regist4" method="post">
+        <div th:text="${sysMsg}"></div>
+        <input name="userName" type="text" placeholder="请输入姓名"><span th:text="${nameMsg}"></span><br>
+        <input name="pwd" type="password" placeholder="请输入密码"><br>
+        <label><input type="radio" name="sex" value="男">male</label>
+        <label><input type="radio" name="sex" value="女">female</label><br>
+        <input name="phone" type="number" placeholder="请输入电话"><span th:text="${phoneMsg}"></span><br>
+        <input name="balance" type="double" placeholder="请输入充值金额" required><br>
+        <input name="birth" type="date" value="请输入生日"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+</body>
+</html>

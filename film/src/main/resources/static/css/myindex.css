@@ -1,0 +1,72 @@
+.film-img {
+    float: left;
+    display: block;
+    width: 195px;
+    height: 262px;
+    font: 400 18px/262px 'Microsoft YaHei';
+    background-color: #9dc60a;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+}
+.film-img img {
+    /*如果图片大小不做定义，则页面需要重新渲染，速度受到影响*/
+    width: 195px;
+    height: 262px;
+    float: left;
+    border-radius: 10px;
+}
+
+.film-info {
+    margin-top: 1px;
+    height: 56px;
+    width: 195px;
+    background-color: #FEFEFE;
+    float: left;
+    color: #000;
+}
+.film-play {
+    display: block;
+    /*background-color: yellow;*/
+    font: 400 18px/40px 'Microsoft YaHei';
+    height: 40px;
+    line-height: 40px;
+    width: 195px;
+    float: left;
+    color: #000;
+    cursor: pointer;
+    border: 1px solid #2fa4e7;
+}
+
+.film-play:hover {
+    background-color: #2fa4e7;
+}
+
+
+.films-content{
+    padding-left: 10px;
+    float: left;
+    text-align: center;
+    /*position: relative;*/
+    width: 100%;
+    margin: auto 70px;
+    /*background-color: red;*/
+}
+.films-content ul {
+    display: table;
+    text-align: center;
+}
+.films-content ul li {
+    float: left;
+    width: 195px;
+    height: 374px;
+    /*这里的行高太高了，把下面的元素都挤走了？？？*/
+    /*font: 400 18px/262px 'Microsoft YaHei';*/
+    text-align: center;
+    color: #ffffff;
+    background-color: #F8F8F8;
+    margin-right: 10px;
+    margin-top: 12px;
+    padding: 10px 14px;
+    position: static;
+}

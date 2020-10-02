@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>用户详情</h1>
+    <form action="http://localhost:8090/DEMO/update1" method="post"
+        enctype="multipart/form-data">
+        <span>用户编号：</span><input name="userId" type="text" th:value="${users.userId}" readonly><br>
+        <span>用户名：</span><input name="userName" th:value="${users.userName}" readonly><br>
+        <span>密码：</span><input name="pwd" type="password" th:value="${users.pwd}"><br>
+        <span>状态：</span>
+        <div th:if="0==${users.state}">
+            <label><input type="radio" name="sex" value="0" checked>不可用</label>
+            <label><input type="radio" name="sex" value="1">可用</label><br>
+        </div>
+        <div th:if="1==${users.state}">
+            <label><input type="radio" name="sex" value="0">不可用</label>
+            <label><input type="radio" name="sex" value="1" checked>可用</label><br>
+        </div>
+        <input name="file" type="file"><br>
+        <input type="submit" value="修改"><br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://localhost:8090/DEMO/css/myindex.css" rel="stylesheet">
+</head>
+<body>
+    <text>我是动态页面</text>
+    <br>
+    我的名字叫<span th:text="${name}"></span><br>
+    <div th:if="${session.user!=null}">
+        <span th:text="${session.user.userName}"></span>登录！
+        欢迎，<a href="http://localhost:8090/DEMO/logout">登出</a>
+        <a href="http://localhost:8090/DEMO/toViewRecord">观影记录</a>
+    </div>
+    <div th:if="${session.user==null}">
+        <a href="http://localhost:8090/DEMO/toLogin">登录！</a>
+    </div>
+    <!--<div th:text="${films}"></div>-->
+
+    <div class="films-content">
+        <ul>
+            <li th:each="f:${films}">
+                <!--图片可以来源于服务器-->
+                <div class="film-img" href="#">
+                    <img th:src="'http://localhost:8090/DEMO/image/'+${f.filmImageMain}"
+                         alt="">
+                </div>
+                <div class="film-info">
+                    <!--电影名1-->
+                    <span class="film-name" th:text="${f.filmName}"></span><br>
+                    <!--上映时间-->
+                    <span class="film-time" th:text="${#dates.format(f.filmReleaseTime,'yyyy-MM-dd')}"></span>
+                </div>
+                <!--使用js进行路由跳转  这里href省略，否则地址栏显示有问题 -->
+                <a class="film-play" href="http://localhost:8090/DEMO/toFilm/">
+                    ▶&nbsp;欢迎收看
+                </a>
+            </li>
+        </ul>
+    </div>
+    <video th:src="'http://localhost:8090/DEMO/video/'+${films[0].filmVideoUrl}" width="400" height="220"
+           controls>
+    </video>
+</body>
+</html>

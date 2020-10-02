@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="http://localhost:8090/DEMO/css/myindex.css" rel="stylesheet">
+</head>
+<body>
+    <p>哼哼啊啊啊啊</p>
+<!--        静态      -->
+    <a href="regist.html">注册</a>
+    <br>
+    <a href="http://localhost:8090/DEMO/regist.html">注册</a>
+<!--        动态      -->
+    <a href="toRegist">动态注册</a>
+    <a href="http://localhost:8090/DEMO/toRegist">动态注册</a>
+
+    <div class="films-content">
+        <ul>
+            <li>
+                <!--图片可以来源于服务器-->
+                <div class="film-img" href="#"><img src="" alt=""></div>
+                <div class="film-info">
+                    <!--电影名1-->
+                    <span class="film-name">电影名1</span><br>
+                    <!--上映时间-->
+                    <span class="film-time">上映时间</span>
+                </div>
+                <!--使用js进行路由跳转  这里href省略，否则地址栏显示有问题 -->
+                <a class="film-play">
+                    ▶&nbsp;欢迎收看
+                </a>
+            </li>
+        </ul>
+    </div>
+    <video src="http://localhost:8090/DEMO/video/16.mp4" width="200" height="120"
+           controls>
+    </video>
+</body>
+</html>

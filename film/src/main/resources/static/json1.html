@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://localhost:8090/DEMO/js/jquery-1.8.3.js"></script>
+    <script>
+        $(function(){
+            //后台发送JSON数据回来  前台传递表单数据到后台
+            $('#test1').click(function () {
+                $.ajax({
+                    type:'post',
+                    url:'http://localhost:8090/DEMO/test1',
+                    data:'userName=doyapi&pwd=123456',
+                        success:function (result) {
+                            console.log(result);
+                            console.log(result.userName);
+                            $('#msg').html("后台获取到的用户名："+result.userName);
+                        },error:function () {
+                            console.log("通讯失败");
+                    }
+                })
+            });
+        })
+    </script>
+</head>
+<body>
+    <input type="button" id="test1" value="前台传递表单数据到后台，后台发送JSON数据回来"><br>
+    <div id="msg"></div>
+</body>
+</html>
